@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1631px" height="1366px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 506 424"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str1 {stroke:#1961BD;stroke-width:3.103}
+    .str3 {stroke:#1961BD;stroke-width:1.24105}
+    .str2 {stroke:#1961BD;stroke-width:2.48247}
+    .str0 {stroke:#1961BD;stroke-width:4.96495}
+    .fil0 {fill:none}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2355147680592">
+   <g>
+    <path class="fil0 str0" d="M253 421l238 0c7,-2 12,-6 13,-14l-1 -234 -45 -29"/>
+    <path class="fil0 str0" d="M253 421l-238 0c-7,-2 -12,-6 -13,-14l1 -234 45 -29"/>
+   </g>
+   <path class="fil0 str1" d="M17 407l229 -142c4,-2 9,-2 13,0l231 142"/>
+   <line class="fil0 str1" x1="14" y1="177" x2="215" y2= "277" />
+   <line class="fil0 str1" x1="290" y1="277" x2="491" y2= "177" />
+   <path class="fil0 str2" d="M91 22l77 0c7,0 14,6 14,13l0 40c0,8 -7,14 -14,14l-77 0c-8,0 -14,-6 -14,-14l0 -40c0,-7 6,-13 14,-13z"/>
+   <polygon class="fil0 str3" points="197,22 383,22 383,36 197,36 "/>
+   <polygon class="fil0 str3" points="197,48 412,48 412,62 197,62 "/>
+   <polygon class="fil0 str3" points="197,74 406,74 406,88 197,88 "/>
+   <polygon class="fil0 str3" points="78,102 367,102 367,116 78,116 "/>
+   <polygon class="fil0 str3" points="78,131 384,131 384,145 78,145 "/>
+   <polygon class="fil0 str3" points="76,156 410,156 410,171 76,171 "/>
+   <polygon class="fil0 str3" points="76,182 288,182 288,196 76,196 "/>
+   <path class="fil0 str0" d="M448 188l0 -171c0,-8 -6,-15 -14,-15l-364 0c-8,0 -14,7 -14,15 0,57 0,115 0,172"/>
+  </g>
+ </g>
+</svg>
