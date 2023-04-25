@@ -90,7 +90,6 @@ export default function EcommerceInvoice() {
           ]}
         />
 
-        <InvoiceToolbar invoice={INVOICE} />
 
         <Card sx={{ pt: 5, px: 5 }}>
           <Grid container>
