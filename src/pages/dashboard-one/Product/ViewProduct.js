@@ -194,7 +194,7 @@ export default function EcommerceProductList() {
             </Button>
           }
         />
-
+        {console.log(filteredproduct)}
         <Card>
           <ProductListToolbar
             numSelected={selected.length}
@@ -254,7 +254,7 @@ export default function EcommerceProductList() {
                             >
                               <ThumbImgStyle
                                 alt={"Product Image"}
-                                src={`${host}/resources/${image}`}
+                                src={`${host}resources/${image}`}
                               />
 
                               <Typography variant="subtitle2" noWrap>

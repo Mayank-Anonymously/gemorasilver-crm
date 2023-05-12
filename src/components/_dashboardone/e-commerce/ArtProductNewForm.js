@@ -97,6 +97,8 @@ export default function ArtProductNewForm({ isEdit, currentProduct }) {
       inStock: Boolean(currentProduct?.inventoryType !== "out_of_stock"),
       categoryName: "",
       categoryId: 0,
+      quantity: "",
+      stockQuantity: "",
     },
     validationSchema: NewProductSchema,
     onSubmit: async (values, { setSubmitting, resetForm, setErrors }) => {
@@ -226,6 +228,28 @@ export default function ArtProductNewForm({ isEdit, currentProduct }) {
                     fullWidth
                     label="Product SKU"
                     {...getFieldProps("sku")}
+                  />
+                  <TextField
+                    fullWidth
+                    label="Quantity"
+                    {...getFieldProps("quantity")}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">No.</InputAdornment>
+                      ),
+                      type: "number",
+                    }}
+                  />
+                  <TextField
+                    fullWidth
+                    label="Stock-Quantity"
+                    {...getFieldProps("stockQuantity")}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">No.</InputAdornment>
+                      ),
+                      type: "number",
+                    }}
                   />
 
                   <FormControl fullWidth>
