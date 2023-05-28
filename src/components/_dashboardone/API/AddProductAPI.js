@@ -33,7 +33,6 @@ export const AddProductAPI = (values) => {
   axios
     .request(options)
     .then(function (response) {
-      console.log(response.data);
       if (response.data.baseResponse.status === 1) {
         swal({
           title: "Product Created Successfully",

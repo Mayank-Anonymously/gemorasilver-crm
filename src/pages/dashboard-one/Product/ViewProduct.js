@@ -40,6 +40,7 @@ import {
 import { GetAllProduct } from "src/components/_dashboardone/API/GetAllProduct";
 import HeaderBreadcrumbs from "src/components/HeaderBreadcrumbs";
 import { host } from "src/static";
+import DeleteProduct from "src/components/_dashboardone/API/DeleteProduct";
 
 // ----------------------------------------------------------------------
 
@@ -48,6 +49,7 @@ const TABLE_HEAD = [
   { id: "description", label: "Description", alignRight: false },
   { id: "inventoryType", label: "Status", alignRight: false },
   { id: "price", label: "Price", alignRight: true },
+  { id: "Action", label: "Action", alignRight: true },
   { id: "" },
 ];
 
@@ -179,7 +181,6 @@ export default function EcommerceProductList() {
             { name: "Dashboard", href: PATH_DASHBOARD.root },
             {
               name: "E-Commerce",
-              href: PATH_DASHBOARD.eCommerce.root,
             },
             { name: "Product List" },
           ]}
@@ -194,7 +195,6 @@ export default function EcommerceProductList() {
             </Button>
           }
         />
-        {console.log(filteredproduct)}
         <Card>
           <ProductListToolbar
             numSelected={selected.length}
@@ -225,8 +225,11 @@ export default function EcommerceProductList() {
                         description,
                         priceSale,
                         inStock,
+                        ProductId,
                       } = row;
-
+                      {
+                        console.log("row::", row);
+                      }
                       const isItemSelected = selected.indexOf(title) !== -1;
 
                       return (
@@ -270,7 +273,7 @@ export default function EcommerceProductList() {
                               }}
                             />
                           </TableCell>
-                          {console.log(inStock)}
+
                           <TableCell style={{ minWidth: 160 }}>
                             <Label
                               variant={
@@ -290,6 +293,15 @@ export default function EcommerceProductList() {
                             </Label>
                           </TableCell>
                           <TableCell align="left">₹{priceSale}</TableCell>
+                          <TableCell align="left">
+                            <Button
+                              size="small"
+                              variant="outlined"
+                              onClick={() => DeleteProduct(ProductId)}
+                            >
+                              Delete
+                            </Button>
+                          </TableCell>
                         </TableRow>
                       );
                     })}

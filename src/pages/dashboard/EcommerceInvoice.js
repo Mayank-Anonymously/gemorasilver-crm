@@ -84,7 +84,6 @@ export default function EcommerceInvoice() {
             { name: "Dashboard", href: PATH_DASHBOARD.root },
             {
               name: "E-Commerce",
-              href: PATH_DASHBOARD.eCommerce.root,
             },
             { name: "Invoice" },
           ]}

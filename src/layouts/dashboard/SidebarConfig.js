@@ -103,6 +103,27 @@ const sidebarConfig = [
       },
     ],
   },
+  {
+    subheader: "Orders-Management",
+    items: [
+      // MANAGEMENT : USER
+
+      // MANAGEMENT : E-COMMERCE
+      {
+        title: "Orders",
+        path: PATH_DASHBOARD.general.root,
+        icon: ICONS.cart,
+        children: [
+          {
+            title: "View-orders",
+            path: PATH_DASHBOARD.general.viewOrders,
+          },
+          // { title: "checkout", path: PATH_DASHBOARD.eCommerce.checkout },
+          // { title: "invoice", path: PATH_DASHBOARD.eCommerce.invoice },
+        ],
+      },
+    ],
+  },
 
   // APP
   // ----------------------------------------------------------------------

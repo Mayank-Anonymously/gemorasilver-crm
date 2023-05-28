@@ -185,7 +185,6 @@ export default function EcommerceProductList() {
             { name: "Dashboard", href: PATH_DASHBOARD.root },
             {
               name: "E-Commerce",
-              href: PATH_DASHBOARD.eCommerce.root,
             },
             { name: "Product List" },
           ]}

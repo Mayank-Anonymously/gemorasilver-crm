@@ -37,18 +37,17 @@ import {
   ProductListToolbar,
   ProductMoreMenu,
 } from "src/components/_dashboard/e-commerce/product-list";
-
 import HeaderBreadcrumbs from "src/components/HeaderBreadcrumbs";
-import { GetAllCategory } from "src/components/_dashboardone/API/GetAllCategory";
 import { host } from "src/static";
-import DeleteCategory from "src/components/_dashboardone/API/DeleteCategory"; 
+import { GetAllOrders } from "../../../components/_dashboardone/API/GetAllOrders";
 
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: "name", label: "Name", alignCenter: false },
-  { id: "description", label: "Description", alignCenter: false },
-  { id: "action", label: "Action", alignCenter: false },
+  { id: "name", label: "Product", alignRight: false },
+  { id: "description", label: "Description", alignRight: false },
+  { id: "inventoryType", label: "Status", alignRight: false },
+  { id: "price", label: "Price", alignRight: true },
   { id: "" },
 ];
 
@@ -90,7 +89,7 @@ function applySortFilter(array, comparator, query) {
     return filter(
       array,
       (_product) =>
-        _product.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        _product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
     );
   }
 
@@ -99,11 +98,10 @@ function applySortFilter(array, comparator, query) {
 
 // ----------------------------------------------------------------------
 
-export default function EcommerceCategoryList() {
+export default function ViewAllOrders() {
   const { themeStretch } = useSettings();
   const theme = useTheme();
-
-  const [category, setCategory] = useState([]);
+  const [orders, setOrders] = useState([]);
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState("asc");
   const [selected, setSelected] = useState([]);
@@ -112,7 +110,7 @@ export default function EcommerceCategoryList() {
   const [orderBy, setOrderBy] = useState("createdAt");
 
   useEffect(() => {
-    GetAllCategory({ setCategory });
+    GetAllOrders({ setOrders });
   }, []);
 
   const handleRequestSort = (event, property) => {
@@ -123,7 +121,7 @@ export default function EcommerceCategoryList() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = category.map((n) => n.name);
+      const newSelecteds = orders.map((n) => n.name);
       setSelected(newSelecteds);
       return;
     }
@@ -162,30 +160,40 @@ export default function EcommerceCategoryList() {
   };
 
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - category.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - orders.length) : 0;
 
-  const filteredcategory = applySortFilter(
-    category,
+  const filteredproduct = applySortFilter(
+    orders,
     getComparator(order, orderBy),
     filterName
   );
 
-  const isProductNotFound = filteredcategory.length === 0;
+  const isProductNotFound = filteredproduct.length === 0;
 
   return (
-    <Page title="Ecommerce: Category List | Asfiya_Art_Shop">
+    <Page title="Ecommerce: Orders List | Animatrix Store">
       <Container maxWidth={themeStretch ? false : "xxxl"}>
         <HeaderBreadcrumbs
-          heading="Category List"
+          heading="Orders List"
           links={[
             { name: "Dashboard", href: PATH_DASHBOARD.root },
             {
               name: "E-Commerce",
             },
-            { name: "Category List" },
+            { name: "Orders List" },
           ]}
+          action={
+            <Button
+              variant="contained"
+              component={RouterLink}
+              to={PATH_DASHBOARD.eCommerce.newProduct}
+              startIcon={<Icon icon={plusFill} />}
+            >
+              New Orders
+            </Button>
+          }
         />
-
+        {console.log(filteredproduct)}
         <Card>
           <ProductListToolbar
             numSelected={selected.length}
@@ -200,29 +208,30 @@ export default function EcommerceCategoryList() {
                   order={order}
                   orderBy={orderBy}
                   headLabel={TABLE_HEAD}
-                  rowCount={category.length}
+                  rowCount={orders.length}
                   numSelected={selected.length}
                   onRequestSort={handleRequestSort}
                   onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
-                  {filteredcategory
+                  {filteredproduct
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((row) => {
                       const {
-                        _id,
-                        CategoryName,
-                        CategoryDescription,
-                        catImage,
+                        id,
+                        title,
+                        image,
+                        description,
+                        priceSale,
+                        inStock,
                       } = row;
 
-                      const isItemSelected =
-                        selected.indexOf(CategoryName) !== -1;
+                      const isItemSelected = selected.indexOf(title) !== -1;
 
                       return (
                         <TableRow
                           hover
-                          key={_id}
+                          key={id}
                           tabIndex={-1}
                           role="checkbox"
                           selected={isItemSelected}
@@ -231,9 +240,7 @@ export default function EcommerceCategoryList() {
                           <TableCell padding="checkbox">
                             <Checkbox
                               checked={isItemSelected}
-                              onChange={(event) =>
-                                handleClick(event, CategoryName)
-                              }
+                              onChange={(event) => handleClick(event, title)}
                             />
                           </TableCell>
                           <TableCell component="th" scope="row" padding="none">
@@ -246,10 +253,11 @@ export default function EcommerceCategoryList() {
                             >
                               <ThumbImgStyle
                                 alt={"Product Image"}
-                                src={`${host}resources/${catImage}`}
+                                src={`${host}resources/${image}`}
                               />
+
                               <Typography variant="subtitle2" noWrap>
-                                {CategoryName}
+                                {title}
                               </Typography>
                             </Box>
                           </TableCell>
@@ -257,19 +265,30 @@ export default function EcommerceCategoryList() {
                           <TableCell align="left">
                             <div
                               dangerouslySetInnerHTML={{
-                                __html: CategoryDescription,
+                                __html: description,
                               }}
                             />
                           </TableCell>
-                          <TableCell align="left">
-                            <Button
-                              size="small"
-                              variant="outlined"
-                              onClick={() => DeleteCategory(_id)}
+                          {console.log(inStock)}
+                          <TableCell style={{ minWidth: 160 }}>
+                            <Label
+                              variant={
+                                theme.palette.mode === "light"
+                                  ? "ghost"
+                                  : "filled"
+                              }
+                              color={
+                                inStock === "false" ||
+                                (false && "error") ||
+                                inStock === "true" ||
+                                (true && "success") ||
+                                "success"
+                              }
                             >
-                              Delete
-                            </Button>
+                              {inStock === true ? "In Stock" : "Out Of Stock"}
+                            </Label>
                           </TableCell>
+                          <TableCell align="left">₹{priceSale}</TableCell>
                         </TableRow>
                       );
                     })}
@@ -297,7 +316,7 @@ export default function EcommerceCategoryList() {
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
-            count={category.length}
+            count={orders.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}

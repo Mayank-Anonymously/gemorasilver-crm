@@ -42,6 +42,7 @@ export const PATH_DASHBOARD = {
     addProduct: path(ROOTS_DASHBOARD, "/add-product"),
     viewProduct: path(ROOTS_DASHBOARD, "/view-product"),
     viewCategory: path(ROOTS_DASHBOARD, "/view-category"),
+    viewOrders: path(ROOTS_DASHBOARD, "/view-orders"),
   },
   flight: {
     root: path(ROOTS_DASHBOARD, "/dashboard/app"),
