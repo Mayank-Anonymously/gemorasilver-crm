@@ -1,41 +1,41 @@
-import { useEffect } from "react";
-import { paramCase } from "change-case";
-import { useParams, useLocation } from "react-router-dom";
+import { useEffect } from 'react';
+import { paramCase } from 'change-case';
+import { useParams, useLocation } from 'react-router-dom';
 // material
-import { Container } from "@material-ui/core";
+import { Container } from '@material-ui/core';
 // redux
-import { useDispatch, useSelector } from "../../../redux/store";
-import { getProducts } from "../../../redux/slices/product";
+import { useDispatch, useSelector } from '../../../redux/store';
+import { getProducts } from '../../../redux/slices/product';
 // routes
-import { PATH_DASHBOARD } from "../../../routes/paths";
+import { PATH_DASHBOARD } from '../../../routes/paths';
 // hooks
-import useSettings from "../../../hooks/useSettings";
+import useSettings from '../../../hooks/useSettings';
 // components
-import Page from "../../../components/Page";
-import HeaderBreadcrumbs from "../../../components/HeaderBreadcrumbs";
-import CategoryNewForm from "../../../components/_dashboardone/e-commerce/CategoryNewForm";
+import Page from '../../../components/Page';
+import HeaderBreadcrumbs from '../../../components/HeaderBreadcrumbs';
+import CategoryNewForm from '../../../components/_dashboardone/e-commerce/CategoryNewForm';
 
 // ----------------------------------------------------------------------
 
 export default function CreateCategory() {
-  const { themeStretch } = useSettings();
+	const { themeStretch } = useSettings();
 
-  return (
-    <Page title="Ecommerce: Create a new product | Asfiya_Art_Shop">
-      <Container maxWidth={themeStretch ? false : "lg"}>
-        <HeaderBreadcrumbs
-          heading={"Create a new Category"}
-          links={[
-            { name: "Dashboard", href: PATH_DASHBOARD.root },
-            {
-              name: "E-Commerce",
-            },
-            { name: "New Category" },
-          ]}
-        />
+	return (
+		<Page title='Ecommerce: Create a new product | Gemora Silver'>
+			<Container maxWidth={themeStretch ? false : 'lg'}>
+				<HeaderBreadcrumbs
+					heading={'Create a new Category'}
+					links={[
+						{ name: 'Dashboard', href: PATH_DASHBOARD.root },
+						{
+							name: 'E-Commerce',
+						},
+						{ name: 'New Category' },
+					]}
+				/>
 
-        <CategoryNewForm />
-      </Container>
-    </Page>
-  );
+				<CategoryNewForm />
+			</Container>
+		</Page>
+	);
 }

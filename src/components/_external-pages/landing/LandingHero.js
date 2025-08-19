@@ -1,126 +1,126 @@
-import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
-import flashFill from "@iconify/icons-eva/flash-fill";
-import { Link as RouterLink } from "react-router-dom";
+import { Icon } from '@iconify/react';
+import { motion } from 'framer-motion';
+import flashFill from '@iconify/icons-eva/flash-fill';
+import { Link as RouterLink } from 'react-router-dom';
 // material
-import { styled } from "@material-ui/core/styles";
+import { styled } from '@material-ui/core/styles';
 import {
-  Button,
-  Box,
-  Link,
-  Container,
-  Typography,
-  Stack,
-} from "@material-ui/core";
+	Button,
+	Box,
+	Link,
+	Container,
+	Typography,
+	Stack,
+} from '@material-ui/core';
 // routes
-import { PATH_DASHBOARD } from "../../../routes/paths";
+import { PATH_DASHBOARD } from '../../../routes/paths';
 //
 import {
-  varFadeIn,
-  varFadeInUp,
-  varWrapEnter,
-  varFadeInRight,
-} from "../../animate";
+	varFadeIn,
+	varFadeInUp,
+	varWrapEnter,
+	varFadeInRight,
+} from '../../animate';
 
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
-  position: "relative",
-  backgroundColor: theme.palette.grey[400],
-  [theme.breakpoints.up("md")]: {
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100vh",
-    display: "flex",
-    position: "fixed",
-    alignItems: "center",
-  },
+	position: 'relative',
+	backgroundColor: theme.palette.grey[400],
+	[theme.breakpoints.up('md')]: {
+		top: 0,
+		left: 0,
+		width: '100%',
+		height: '100vh',
+		display: 'flex',
+		position: 'fixed',
+		alignItems: 'center',
+	},
 }));
 
 const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(
-  ({ theme }) => ({
-    zIndex: 10,
-    maxWidth: 520,
-    margin: "auto",
-    textAlign: "center",
-    position: "relative",
-    paddingTop: theme.spacing(15),
-    paddingBottom: theme.spacing(15),
-    [theme.breakpoints.up("md")]: {
-      margin: "unset",
-      textAlign: "left",
-    },
-  })
+	({ theme }) => ({
+		zIndex: 10,
+		maxWidth: 520,
+		margin: 'auto',
+		textAlign: 'center',
+		position: 'relative',
+		paddingTop: theme.spacing(15),
+		paddingBottom: theme.spacing(15),
+		[theme.breakpoints.up('md')]: {
+			margin: 'unset',
+			textAlign: 'left',
+		},
+	})
 );
 
 const HeroOverlayStyle = styled(motion.img)({
-  zIndex: 9,
-  width: "100%",
-  height: "100%",
-  objectFit: "cover",
-  position: "absolute",
+	zIndex: 9,
+	width: '100%',
+	height: '100%',
+	objectFit: 'cover',
+	position: 'absolute',
 });
 
 const HeroImgStyle = styled(motion.img)(({ theme }) => ({
-  top: 0,
-  right: 0,
-  bottom: 0,
-  zIndex: 8,
-  width: "100%",
-  margin: "auto",
-  height: "50rem",
-  position: "absolute",
-  [theme.breakpoints.up("xl")]: {
-    right: "8%",
-    bottom: "50%",
-    width: "50rem",
-    height: "60rem",
-  },
+	top: 0,
+	right: 0,
+	bottom: 0,
+	zIndex: 8,
+	width: '100%',
+	margin: 'auto',
+	height: '50rem',
+	position: 'absolute',
+	[theme.breakpoints.up('xl')]: {
+		right: '8%',
+		bottom: '50%',
+		width: '50rem',
+		height: '60rem',
+	},
 }));
 
 // ----------------------------------------------------------------------
 
 export default function LandingHero() {
-  return (
-    <>
-      <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
-        <HeroOverlayStyle
-          alt="overlay"
-          src="/static/overlay.svg"
-          variants={varFadeIn}
-        />
+	return (
+		<>
+			<RootStyle initial='initial' animate='animate' variants={varWrapEnter}>
+				<HeroOverlayStyle
+					alt='overlay'
+					src='/static/overlay.svg'
+					variants={varFadeIn}
+				/>
 
-        <HeroImgStyle
-          alt="hero"
-          className="w-48 h-48"
-          src="/static/PlaneForMain.png"
-          variants={varFadeInUp}
-        />
+				<HeroImgStyle
+					alt='hero'
+					className='w-48 h-48'
+					src='/static/PlaneForMain.png'
+					variants={varFadeInUp}
+				/>
 
-        <Container maxWidth="lg">
-          <ContentStyle>
-            <motion.div variants={varFadeInRight}>
-              <Typography variant="h1" sx={{ color: "common.white" }}>
-                Start <br />
-                Booking Tickets <br /> with
-                <Typography
-                  component="span"
-                  variant="h1"
-                  sx={{ color: "primary.main" }}
-                >
-                  &nbsp;Asfiya_Art_Shop
-                </Typography>
-              </Typography>
-            </motion.div>
+				<Container maxWidth='lg'>
+					<ContentStyle>
+						<motion.div variants={varFadeInRight}>
+							<Typography variant='h1' sx={{ color: 'common.white' }}>
+								Start <br />
+								Booking Tickets <br /> with
+								<Typography
+									component='span'
+									variant='h1'
+									sx={{ color: 'primary.main' }}
+								>
+									&nbsp;Gemora Silver
+								</Typography>
+							</Typography>
+						</motion.div>
 
-            <motion.div variants={varFadeInRight}>
-              <Typography sx={{ color: "common.white" }}>
-                Always Deliver more Than Expected.
-              </Typography>
-            </motion.div>
+						<motion.div variants={varFadeInRight}>
+							<Typography sx={{ color: 'common.white' }}>
+								Always Deliver more Than Expected.
+							</Typography>
+						</motion.div>
 
-            {/* <Stack
+						{/* <Stack
               component={motion.div}
               variants={varFadeInRight}
               direction="row"
@@ -145,19 +145,19 @@ export default function LandingHero() {
               </Link>
             </Stack> */}
 
-            <motion.div variants={varFadeInRight}>
-              <Button
-                size="large"
-                variant="contained"
-                component={RouterLink}
-                to={PATH_DASHBOARD.root}
-                // startIcon={<Icon icon={flashFill} width={20} height={20} />}
-              >
-                Let's Search Flights
-              </Button>
-            </motion.div>
+						<motion.div variants={varFadeInRight}>
+							<Button
+								size='large'
+								variant='contained'
+								component={RouterLink}
+								to={PATH_DASHBOARD.root}
+								// startIcon={<Icon icon={flashFill} width={20} height={20} />}
+							>
+								Let's Search Flights
+							</Button>
+						</motion.div>
 
-            {/* <Stack direction="row" spacing={1.5} justifyContent={{ xs: 'center', md: 'flex-start' }}>
+						{/* <Stack direction="row" spacing={1.5} justifyContent={{ xs: 'center', md: 'flex-start' }}>
               <motion.img variants={varFadeInRight} src="/static/home/ic_sketch.svg" />
               <motion.img variants={varFadeInRight} src="/static/home/ic_figma.svg" />
               <motion.img variants={varFadeInRight} src="/static/home/ic_material.svg" />
@@ -165,10 +165,10 @@ export default function LandingHero() {
               <motion.img variants={varFadeInRight} src="/static/home/ic_js.svg" />
               <motion.img variants={varFadeInRight} src="/static/home/ic_ts.svg" />
             </Stack> */}
-          </ContentStyle>
-        </Container>
-      </RootStyle>
-      <Box sx={{ height: { md: "100vh" } }} />
-    </>
-  );
+					</ContentStyle>
+				</Container>
+			</RootStyle>
+			<Box sx={{ height: { md: '100vh' } }} />
+		</>
+	);
 }

@@ -66,7 +66,7 @@ export default function Login() {
 	};
 
 	return (
-		<RootStyle title='Login | Asfiya_Art_Shop '>
+		<RootStyle title='Login | Gemora Silver '>
 			<AuthLayout>
 				New User Sign Up ? &nbsp;
 				<Link
@@ -98,7 +98,7 @@ export default function Login() {
 								style={{ fontSize: 16 }}
 								gutterBottom
 							>
-								Sign in to your Asfiya_Art_Shop account
+								Sign in to your Gemora Silver account
 							</Typography>
 							<Typography sx={{ color: 'text.secondary', fontSize: 12 }}>
 								Enter your account details below.

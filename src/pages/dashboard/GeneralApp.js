@@ -1,57 +1,57 @@
 // material
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid } from '@material-ui/core';
 // hooks
-import useSettings from "../../hooks/useSettings";
+import useSettings from '../../hooks/useSettings';
 // components
-import Page from "../../components/Page";
-import useAuth from "src/hooks/useAuth";
-import GameRoom from "src/components/_dashboardone/Games/Room";
-import DashboardWelcome from "src/components/_dashboard/general-app/AppWelcome";
-import rooms from "src/utils/rooms";
-import { Stack, Typography } from "@mui/material";
-import { useEffect } from "react";
-import { host } from "src/static";
+import Page from '../../components/Page';
+import useAuth from 'src/hooks/useAuth';
+import GameRoom from 'src/components/_dashboardone/Games/Room';
+import DashboardWelcome from 'src/components/_dashboard/general-app/AppWelcome';
+import rooms from 'src/utils/rooms';
+import { Stack, Typography } from '@mui/material';
+import { useEffect } from 'react';
+import { host } from 'src/static';
 // import { GetAllRoom } from "src/components/_dashboardone/API/GetAllRoom";
 // ----------------------------------------------------------------------
 
 export default function GeneralApp() {
-  const { themeStretch } = useSettings();
+	const { themeStretch } = useSettings();
 
-  const GetAllRoom = () => {
-    var myHeaders = new Headers();
-    myHeaders.append(
-      "Authorization",
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwMDYzMTQyLCJpYXQiOjE2ODAwMzMxNDIsImp0aSI6ImU1MjVhNmUxZTQ4MjRlMDU4NTdiMzk5MTUxOWZhYjFiIiwidXNlcl9pZCI6NX0.fHzllZF2j3zwZHRPqo9hP1xElHT1Ji7h4WaflNGtFj4"
-    );
+	const GetAllRoom = () => {
+		var myHeaders = new Headers();
+		myHeaders.append(
+			'Authorization',
+			'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwMDYzMTQyLCJpYXQiOjE2ODAwMzMxNDIsImp0aSI6ImU1MjVhNmUxZTQ4MjRlMDU4NTdiMzk5MTUxOWZhYjFiIiwidXNlcl9pZCI6NX0.fHzllZF2j3zwZHRPqo9hP1xElHT1Ji7h4WaflNGtFj4'
+		);
 
-    var requestOptions = {
-      method: "GET",
-      headers: myHeaders,
-    };
+		var requestOptions = {
+			method: 'GET',
+			headers: myHeaders,
+		};
 
-    fetch(`${host}v1/games`, requestOptions)
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-  };
-  useEffect(() => {
-    GetAllRoom();
-  }, []);
+		fetch(`${host}v1/games`, requestOptions)
+			.then((response) => response.json())
+			.then((result) => console.log(result))
+			.catch((error) => console.log('error', error));
+	};
+	useEffect(() => {
+		GetAllRoom();
+	}, []);
 
-  return (
-    <Page title="Game Rooms | Asfiya_Art_Shop">
-      <Container maxWidth={themeStretch ? "xxl" : "xxl"}>
-        <Grid container spacing={1}>
-          <Grid item xs={12} md={12} lg={12}>
-            <DashboardWelcome />
-          </Grid>
-          {/* <Grid item xs={12} md={4} lg={12}>
+	return (
+		<Page title='Game Rooms | Gemora Silver'>
+			<Container maxWidth={themeStretch ? 'xxl' : 'xxl'}>
+				<Grid container spacing={1}>
+					<Grid item xs={12} md={12} lg={12}>
+						<DashboardWelcome />
+					</Grid>
+					{/* <Grid item xs={12} md={4} lg={12}>
             <Stack display="flex" justifyContent={"center"} alignItems="center">
               <Typography variant="h3">Games</Typography>
             </Stack>
           </Grid> */}
 
-          {/* {rooms.map((item, index) => {
+					{/* {rooms.map((item, index) => {
             return (
               <Grid item xs={12} md={4} lg={4}>
                 <Stack sx={{ margin: 2 }}>
@@ -61,16 +61,16 @@ export default function GeneralApp() {
             );
           })} */}
 
-          {/* <Grid item xs={12} md={4} lg={4}>
+					{/* <Grid item xs={12} md={4} lg={4}>
             <AppTotalInstalled />
           </Grid>
           <Grid item xs={12} md={4} lg={4}>
             <AppTotalDownloads />
           </Grid> */}
-          {/* <Grid item xs={12} md={4} lg={3}>
+					{/* <Grid item xs={12} md={4} lg={3}>
             <AppTotalQueries />
           </Grid> */}
-          {/* <Grid item xs={12} md={4}>
+					{/* <Grid item xs={12} md={4}>
             <AppFeatured />
           </Grid>
 
@@ -100,8 +100,8 @@ export default function GeneralApp() {
               <AppWidgets2 />
             </Stack>
           </Grid> */}
-        </Grid>
-      </Container>
-    </Page>
-  );
+				</Grid>
+			</Container>
+		</Page>
+	);
 }
