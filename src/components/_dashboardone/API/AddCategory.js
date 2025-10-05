@@ -41,39 +41,39 @@ export const AddCategoryAPI = (values) => {
 };
 
 export const AddSubCategoryAPI = async (values) => {
-	try {
-		const payload = {
-			categoryId: values.categoryId, // selected category ID
-			subCategoryName: values.subCategoryName, // subcategory name input
-			CategoryDescription: values.description || '',
-		};
+	// try {
+	const payload = {
+		categoryId: values.categoryId, // selected category ID
+		subCategoryName: values.subCategoryName, // subcategory name input
+		CategoryDescription: values.description || '',
+	};
 
-		const response = await axios.post(`${host}add-sub-category`, payload, {
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		});
+	const response = await axios.post(`${host}add-sub-category`, payload, {
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	});
 
-		if (response.data.success === true) {
-			swal({
-				title: 'Sub Category Created Successfully',
-				text: 'Your Sub Category has been created successfully.',
-				icon: 'success',
-			});
-		} else {
-			swal({
-				title: 'Error',
-				text: response.data.baseResponse?.message || 'Something went wrong.',
-				icon: 'error',
-				dangerMode: true,
-			});
-		}
-	} catch (error) {
-		console.error('Error creating category:', error);
+	if (response.data.success === true) {
 		swal({
-			title: 'Network Error',
-			text: 'Failed to create category. Please try again later.',
+			title: 'Sub Category Created Successfully',
+			text: 'Your Sub Category has been created successfully.',
+			icon: 'success',
+		});
+	} else {
+		swal({
+			title: 'Error',
+			text: response.data.baseResponse?.message || 'Something went wrong.',
 			icon: 'error',
+			dangerMode: true,
 		});
 	}
+	// } catch (error) {
+	// 	console.error('Error creating category:', error);
+	// 	swal({
+	// 		title: 'Network Error',
+	// 		text: 'Failed to create category. Please try again later.',
+	// 		icon: 'error',
+	// 	});
+	// }
 };
