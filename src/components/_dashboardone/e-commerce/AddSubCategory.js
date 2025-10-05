@@ -2,37 +2,23 @@ import * as Yup from 'yup';
 import PropTypes from 'prop-types';
 import { useSnackbar } from 'notistack5';
 import { useNavigate } from 'react-router-dom';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Form, FormikProvider, useFormik } from 'formik';
-// material
 import { styled } from '@material-ui/core/styles';
 import { LoadingButton } from '@material-ui/lab';
 import {
 	Card,
-	Chip,
 	Grid,
 	Stack,
-	Radio,
-	Switch,
-	Select,
-	InputLabel,
 	Typography,
-	RadioGroup,
-	FormControl,
-	Autocomplete,
-	InputAdornment,
 	FormHelperText,
-	FormControlLabel,
+	MenuItem,
 } from '@material-ui/core';
-// utils
-import fakeRequest from '../../../utils/fakeRequest';
-// routes
-import { PATH_DASHBOARD } from '../../../routes/paths';
-//
+import { TextField } from '@mui/material';
 import { QuillEditor } from '../../editor';
 import { UploadMultiFile } from '../../upload';
-import { AddCategoryAPI } from '../API/AddCategory';
-import { TextField } from '@mui/material';
+import { AddCategoryAPI, AddSubCategoryAPI } from '../API/AddCategory';
+import { GetAllCategory } from '../API/GetAllCategory'; // ✅ using your existing API
 
 // ----------------------------------------------------------------------
 
@@ -42,48 +28,48 @@ const LabelStyle = styled(Typography)(({ theme }) => ({
 	marginBottom: theme.spacing(1),
 }));
 
-// ----------------------------------------------------------------------
-
-CategoryNewForm.propTypes = {
+AddSubCategoryNewForm.propTypes = {
 	isEdit: PropTypes.bool,
 	currentProduct: PropTypes.object,
 };
 
-export default function CategoryNewForm({ isEdit, currentProduct }) {
+// ----------------------------------------------------------------------
+
+export default function AddSubCategoryNewForm({ isEdit, currentProduct }) {
 	const navigate = useNavigate();
 	const { enqueueSnackbar } = useSnackbar();
+	const [category, setCategory] = useState([]);
 
-	const NewProductSchema = Yup.object().shape({
-		name: Yup.string().required('Name is required'),
+	// ✅ Fetch all categories from backend
+	useEffect(() => {
+		GetAllCategory({ setCategory });
+	}, []);
+
+	// ✅ Validation Schema
+	const NewCategorySchema = Yup.object().shape({
+		categoryId: Yup.string().required('Please select a category'),
+		subCategoryName: Yup.string().required('Subcategory name is required'),
 		description: Yup.string().required('Description is required'),
-		// images: Yup.array().min(1, "Images is required"),
-		// price: Yup.number().required("Price is required"),
 	});
 
+	// ✅ Formik setup
 	const formik = useFormik({
 		enableReinitialize: true,
 		initialValues: {
-			name: currentProduct?.name || '',
-			description: currentProduct?.description || '',
-			images: currentProduct?.images || [],
-			//   subCat: "",
-			//   sku: currentProduct?.sku || "",
-			//   price: currentProduct?.price || "",
-			//   priceSale: currentProduct?.priceSale || "",
-			//   tags: currentProduct?.tags || [TAGS_OPTION[0]],
-			//   inStock: Boolean(currentProduct?.inventoryType !== "out_of_stock"),
-			//   taxes: true,
-			//   gender: currentProduct?.gender || GENDER_OPTION[2],
-			//   category: currentProduct?.category || CATEGORY_OPTION[0].classify[1],
+			categoryId: '',
+			subCategoryName: '',
+			description: '',
 		},
-		validationSchema: NewProductSchema,
+		validationSchema: NewCategorySchema,
 		onSubmit: async (values, { setSubmitting, resetForm, setErrors }) => {
 			try {
+				await AddSubCategoryAPI(values); // You can point this to your “add subcategory” API endpoint
+
 				resetForm();
 				setSubmitting(false);
-				await AddCategoryAPI(values);
 			} catch (error) {
 				console.error(error);
+				enqueueSnackbar('Error adding subcategory', { variant: 'error' });
 				setSubmitting(false);
 				setErrors(error);
 			}
@@ -105,23 +91,12 @@ export default function CategoryNewForm({ isEdit, currentProduct }) {
 			setFieldValue(
 				'images',
 				acceptedFiles.map((file) =>
-					Object.assign(file, {
-						preview: URL.createObjectURL(file),
-					})
+					Object.assign(file, { preview: URL.createObjectURL(file) })
 				)
 			);
 		},
 		[setFieldValue]
 	);
-
-	const handleRemoveAll = () => {
-		setFieldValue('images', []);
-	};
-
-	const handleRemove = (file) => {
-		const filteredItems = values.images.filter((_file) => _file !== file);
-		setFieldValue('images', filteredItems);
-	};
 
 	return (
 		<FormikProvider value={formik}>
@@ -130,19 +105,39 @@ export default function CategoryNewForm({ isEdit, currentProduct }) {
 					<Grid item xs={12} md={8} lg={12}>
 						<Card sx={{ p: 3 }}>
 							<Stack spacing={3}>
+								{/* ✅ Select Existing Category */}
+								<TextField
+									select
+									fullWidth
+									label='Select Category'
+									{...getFieldProps('categoryId')}
+									error={Boolean(touched.categoryId && errors.categoryId)}
+									helperText={touched.categoryId && errors.categoryId}
+								>
+									{category.map((cat) => (
+										<MenuItem key={cat._id} value={cat._id}>
+											{cat.CategoryName}
+										</MenuItem>
+									))}
+								</TextField>
+
+								{/* ✅ Subcategory Name */}
 								<TextField
 									fullWidth
-									label='Category Name'
-									{...getFieldProps('name')}
-									error={Boolean(touched.name && errors.name)}
-									helperText={touched.name && errors.name}
+									label='Subcategory Name'
+									{...getFieldProps('subCategoryName')}
+									error={Boolean(
+										touched.subCategoryName && errors.subCategoryName
+									)}
+									helperText={touched.subCategoryName && errors.subCategoryName}
 								/>
 
+								{/* ✅ Description */}
 								<div>
 									<LabelStyle>Description</LabelStyle>
 									<QuillEditor
 										simple
-										id='category-description'
+										id='subcategory-description'
 										value={values.description}
 										onChange={(val) => setFieldValue('description', val)}
 										error={Boolean(touched.description && errors.description)}
@@ -154,33 +149,19 @@ export default function CategoryNewForm({ isEdit, currentProduct }) {
 									)}
 								</div>
 
-								<div>
-									<LabelStyle>Add Images</LabelStyle>
-									<UploadMultiFile
-										showPreview
-										maxSize={3145728}
-										accept='image/*'
-										files={values.images}
-										onDrop={handleDrop}
-										onRemove={handleRemove}
-										onRemoveAll={handleRemoveAll}
-										error={Boolean(touched.images && errors.images)}
-									/>
-									{touched.images && errors.images && (
-										<FormHelperText error sx={{ px: 2 }}>
-											{touched.images && errors.images}
-										</FormHelperText>
-									)}
-								</div>
-
+								{/* ✅ Submit Button */}
 								<LoadingButton
 									type='submit'
 									fullWidth
-									variant='outlined'
+									variant='contained'
 									size='large'
 									loading={isSubmitting}
+									sx={{
+										backgroundColor: '#800000',
+										'&:hover': { backgroundColor: '#a00000' },
+									}}
 								>
-									{'Create Category'}
+									Add Subcategory
 								</LoadingButton>
 							</Stack>
 						</Card>
