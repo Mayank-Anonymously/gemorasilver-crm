@@ -41,12 +41,14 @@ import { GetAllProduct } from 'src/components/_dashboardone/API/GetAllProduct';
 import HeaderBreadcrumbs from 'src/components/HeaderBreadcrumbs';
 import { host } from 'src/static';
 import DeleteProduct from 'src/components/_dashboardone/API/DeleteProduct';
+import EditProduct from 'src/components/_dashboardone/API/EditProductCategoryAPI';
+import EditProductModal from 'src/components/_dashboardone/Product/EditProductModal';
+import { GetAllCategory } from 'src/components/_dashboardone/API/GetAllCategory';
 
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
 	{ id: 'name', label: 'Product', alignRight: false },
-	{ id: 'description', label: 'Description', alignRight: false },
 	{ id: 'inventoryType', label: 'Status', alignRight: false },
 	{ id: 'price', label: 'Price', alignRight: true },
 	{ id: 'Action', label: 'Action', alignRight: true },
@@ -88,11 +90,14 @@ function applySortFilter(array, comparator, query) {
 	});
 
 	if (query) {
-		return filter(
-			array,
-			(_product) =>
-				_product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
-		);
+		return filter(array, (_product) => {
+			const titleMatch =
+				_product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+			const imageMatch =
+				_product.image &&
+				_product.image.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+			return titleMatch || imageMatch;
+		});
 	}
 
 	return stabilizedThis.map((el) => el[0]);
@@ -110,9 +115,13 @@ export default function EcommerceProductList() {
 	const [filterName, setFilterName] = useState('');
 	const [rowsPerPage, setRowsPerPage] = useState(5);
 	const [orderBy, setOrderBy] = useState('createdAt');
+	const [selectedProduct, setSelectedProduct] = useState(false);
+	const [showModal, setShowModal] = useState(false);
+	const [categories, setCategory] = useState([]);
 
 	useEffect(() => {
 		GetAllProduct({ setProduct });
+		GetAllCategory({ setCategory });
 	}, []);
 
 	const handleRequestSort = (event, property) => {
@@ -172,6 +181,11 @@ export default function EcommerceProductList() {
 
 	const isProductNotFound = filteredproduct.length === 0;
 
+	const handleEditClick = (product) => {
+		setSelectedProduct(product);
+		setShowModal(true);
+	};
+
 	return (
 		<Page title='Ecommerce: Product List | Gemora Silver'>
 			<Container maxWidth={themeStretch ? false : 'xxxl'}>
@@ -219,7 +233,7 @@ export default function EcommerceProductList() {
 										.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 										.map((row) => {
 											const {
-												id,
+												_id,
 												title,
 												image,
 												description,
@@ -227,15 +241,13 @@ export default function EcommerceProductList() {
 												inStock,
 												ProductId,
 											} = row;
-											{
-												console.log('row::', row);
-											}
+											console.log(_id);
 											const isItemSelected = selected.indexOf(title) !== -1;
 
 											return (
 												<TableRow
 													hover
-													key={id}
+													key={_id}
 													tabIndex={-1}
 													role='checkbox'
 													selected={isItemSelected}
@@ -266,14 +278,6 @@ export default function EcommerceProductList() {
 														</Box>
 													</TableCell>
 
-													<TableCell align='left'>
-														<div
-															dangerouslySetInnerHTML={{
-																__html: description,
-															}}
-														/>
-													</TableCell>
-
 													<TableCell style={{ minWidth: 160 }}>
 														<Label
 															variant={
@@ -293,7 +297,17 @@ export default function EcommerceProductList() {
 														</Label>
 													</TableCell>
 													<TableCell align='left'>₹{priceSale}</TableCell>
-													<TableCell align='left'>
+													<TableCell
+														align='left'
+														className='d-flex justify-content-around align-items-center'
+													>
+														<Button
+															size='small'
+															variant='contained'
+															onClick={() => handleEditClick(row)}
+														>
+															Edit
+														</Button>
 														<Button
 															size='small'
 															variant='outlined'
@@ -326,6 +340,15 @@ export default function EcommerceProductList() {
 						</TableContainer>
 					</Scrollbar>
 
+					{selectedProduct && (
+						<EditProductModal
+							show={showModal}
+							handleClose={() => setShowModal(false)}
+							product={selectedProduct}
+							categories={categories}
+							subcategories={selectedProduct.categoryId}
+						/>
+					)}
 					<TablePagination
 						rowsPerPageOptions={[5, 10, 25]}
 						component='div'
