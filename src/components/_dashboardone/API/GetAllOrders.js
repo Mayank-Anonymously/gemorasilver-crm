@@ -1,16 +1,16 @@
-import { host } from "../../../static";
+import { host } from '../../../static';
 
 export const GetAllOrders = ({ setOrders }) => {
-  var myHeaders = new Headers();
-  myHeaders.append("Content-type", "application/json");
+	var myHeaders = new Headers();
+	myHeaders.append('Content-type', 'application/json');
 
-  var requestOptions = {
-    method: "GET",
-    headers: myHeaders,
-  };
+	var requestOptions = {
+		method: 'GET',
+		headers: myHeaders,
+	};
 
-  fetch(`${host}order/getAllOrders`, requestOptions)
-    .then((response) => response.json())
-    .then((result) => setOrders(result.response))
-    .catch((error) => console.log("error", error));
+	fetch(`${host}order/get-all-orders`, requestOptions)
+		.then((response) => response.json())
+		.then((result) => setOrders(result))
+		.catch((error) => console.log('error', error));
 };
