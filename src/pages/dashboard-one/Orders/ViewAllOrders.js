@@ -40,6 +40,7 @@ import {
 import HeaderBreadcrumbs from 'src/components/HeaderBreadcrumbs';
 import { host } from 'src/static';
 import { GetAllOrders } from '../../../components/_dashboardone/API/GetAllOrders';
+import OrderDetailsModal from './ViewOrderDetails';
 
 // ----------------------------------------------------------------------
 
@@ -109,7 +110,8 @@ export default function ViewAllOrders() {
 	const [filterName, setFilterName] = useState('');
 	const [rowsPerPage, setRowsPerPage] = useState(5);
 	const [orderBy, setOrderBy] = useState('createdAt');
-
+	const [selectedOrder, setSelectedOrder] = useState(null);
+	const [showOrderModal, setShowOrderModal] = useState(false);
 	useEffect(() => {
 		GetAllOrders({ setOrders });
 	}, []);
@@ -171,6 +173,10 @@ export default function ViewAllOrders() {
 
 	const isProductNotFound = filteredproduct.length === 0;
 
+	const handleViewOrder = (order) => {
+		setSelectedOrder(order);
+		setShowOrderModal(true);
+	};
 	return (
 		<Page title='Ecommerce: Orders List | Animatrix Store'>
 			<Container maxWidth={themeStretch ? false : 'xxxl'}>
@@ -257,9 +263,9 @@ export default function ViewAllOrders() {
 													<TableCell>
 														<Label
 															color={
-																status === 'Completed'
+																status == 'COMPLETED'
 																	? 'success'
-																	: status === 'Pending'
+																	: status == 'Pending'
 																	? 'warning'
 																	: 'error'
 															}
@@ -278,7 +284,11 @@ export default function ViewAllOrders() {
 
 													<TableCell align='right'>
 														{/* Example action */}
-														<Button variant='outlined' size='small'>
+														<Button
+															variant='outlined'
+															size='small'
+															onClick={() => handleViewOrder(order)}
+														>
 															View
 														</Button>
 													</TableCell>
@@ -313,6 +323,13 @@ export default function ViewAllOrders() {
 					/>
 				</Card>
 			</Container>
+			{selectedOrder && (
+				<OrderDetailsModal
+					open={showOrderModal}
+					handleClose={() => setShowOrderModal(false)}
+					order={selectedOrder}
+				/>
+			)}
 		</Page>
 	);
 }
