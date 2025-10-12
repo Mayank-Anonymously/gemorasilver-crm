@@ -4,14 +4,31 @@ import swal from 'sweetalert';
 
 const EditProductCategoryAPI = async (values) => {
 	try {
+		const form = new FormData();
+
+		form.append('productName', values.productName);
+		form.append('description', values.description);
+		form.append('price', values.price);
+		form.append('categoryId', values.subCategoryId);
+
+		// Append images (supporting both old and new)
+		values.images.forEach((image) => {
+			// If image is a File object (new upload), upload it
+			if (image instanceof File) {
+				form.append('image', image);
+			} else if (typeof image === 'string') {
+				// If image is an existing filename, keep it
+				form.append('existingImages', image); // Backend should handle this field
+			}
+		});
+
 		const response = await axios.post(
 			`${host}product/updateProductCategoryId/${values._id}`,
+			form,
 			{
-				productName: values.productName,
-				description: values.description,
-				price: values.price,
-				images: values.images, // array of image URLs
-				categoryId: values.subCategoryId,
+				headers: {
+					'Content-Type': 'multipart/form-data',
+				},
 			}
 		);
 
