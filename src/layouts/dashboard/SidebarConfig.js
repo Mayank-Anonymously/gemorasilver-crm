@@ -63,7 +63,7 @@ const sidebarConfig = [
 				icon: ICONS.user,
 				children: [
 					{
-						title: 'view-product',
+						title: 'View Loyal User',
 						path: PATH_DASHBOARD.general.viewLoyaltyUser,
 					},
 
