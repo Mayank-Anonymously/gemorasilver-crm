@@ -42,7 +42,7 @@ export default function AutocompleteComponent() {
 	const [inputValue, setInputValue] = useState('');
 
 	return (
-		<RootStyle title='Components: Autocomplete | Gemora Silver'>
+		<RootStyle title='Components: Autocomplete | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

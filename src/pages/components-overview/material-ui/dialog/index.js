@@ -34,7 +34,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function DialogComponent() {
 	return (
-		<RootStyle title='Components: Dialog | Gemora Silver'>
+		<RootStyle title='Components: Dialog | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

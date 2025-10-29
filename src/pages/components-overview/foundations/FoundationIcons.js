@@ -43,7 +43,7 @@ const style = {
 
 export default function FoundationIcons() {
 	return (
-		<RootStyle title='Foundations: Icons | Gemora Silver'>
+		<RootStyle title='Foundations: Icons | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

@@ -33,7 +33,7 @@ export default function AvatarComponent() {
 	const theme = useTheme();
 
 	return (
-		<RootStyle title='Components: Avatar | Gemora Silver'>
+		<RootStyle title='Components: Avatar | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

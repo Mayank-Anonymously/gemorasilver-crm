@@ -106,7 +106,7 @@ export default function EcommerceProductDetails() {
 	};
 
 	return (
-		<Page title='Ecommerce: Product Details | Gemora Silver'>
+		<Page title='Ecommerce: Product Details | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'lg'}>
 				<HeaderBreadcrumbs
 					heading='Product Details'

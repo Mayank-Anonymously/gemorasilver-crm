@@ -123,7 +123,7 @@ export default function UserProfile() {
 	];
 
 	return (
-		<Page title='User: Profile | Gemora Silver'>
+		<Page title='User: Profile | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'lg'}>
 				<HeaderBreadcrumbs
 					heading='Profile'

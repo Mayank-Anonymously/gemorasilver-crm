@@ -66,7 +66,7 @@ export default function Login() {
 	};
 
 	return (
-		<RootStyle title='Login | Gemora Silver '>
+		<RootStyle title='Login | Luniva jewels '>
 			<AuthLayout>
 				New User Sign Up ? &nbsp;
 				<Link
@@ -82,7 +82,7 @@ export default function Login() {
 			<MHidden width='mdDown'>
 				<SectionStyle>
 					<Typography variant='h4' sx={{ px: 5, mt: 0, mb: 0 }}>
-						Gemora Silver
+						Luniva jewels
 					</Typography>
 
 					<img src='/static/illustrations/illustration_login.png' alt='login' />
@@ -98,7 +98,7 @@ export default function Login() {
 								style={{ fontSize: 16 }}
 								gutterBottom
 							>
-								Sign in to your Gemora Silver account
+								Sign in to your Luniva jewels account
 							</Typography>
 							<Typography sx={{ color: 'text.secondary', fontSize: 12 }}>
 								Enter your account details below.

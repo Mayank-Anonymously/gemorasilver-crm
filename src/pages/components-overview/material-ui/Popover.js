@@ -53,7 +53,7 @@ export default function PopoversComponent() {
 	};
 
 	return (
-		<RootStyle title='Components: Popover | Gemora Silver'>
+		<RootStyle title='Components: Popover | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

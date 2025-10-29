@@ -92,7 +92,7 @@ export default function SnackbarComponent() {
 	};
 
 	return (
-		<RootStyle title='Components: Snackbar | Gemora Silver'>
+		<RootStyle title='Components: Snackbar | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

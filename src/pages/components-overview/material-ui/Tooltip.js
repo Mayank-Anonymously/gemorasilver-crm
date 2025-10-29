@@ -46,7 +46,7 @@ const style = {
 
 export default function TooltipsComponent() {
 	return (
-		<RootStyle title='Components: Tooltip | Gemora Silver'>
+		<RootStyle title='Components: Tooltip | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

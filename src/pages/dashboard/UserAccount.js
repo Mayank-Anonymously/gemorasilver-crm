@@ -80,7 +80,7 @@ export default function UserAccount() {
 	};
 
 	return (
-		<Page title='User: Account Settings | Gemora Silver'>
+		<Page title='User: Account Settings | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'lg'}>
 				<HeaderBreadcrumbs
 					heading='Account'

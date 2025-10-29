@@ -29,7 +29,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function BreadcrumbComponent() {
 	return (
-		<RootStyle title='Components: Breadcrumbs | Gemora Silver'>
+		<RootStyle title='Components: Breadcrumbs | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

@@ -40,7 +40,7 @@ export default function Animate() {
 	};
 
 	return (
-		<RootStyle title='Components: Animate | Gemora Silver'>
+		<RootStyle title='Components: Animate | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

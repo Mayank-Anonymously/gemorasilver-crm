@@ -13,7 +13,7 @@ export default function Add_user() {
 	const location = useLocation();
 	const { data, time } = location.state;
 	return (
-		<Page title='Playground | Gemora Silver'>
+		<Page title='Playground | Luniva jewels'>
 			<Container maxWidth={themeStretch ? 'xxl' : 'xxl'}>
 				<HeaderBreadcrumbs
 					heading={data.gameName}

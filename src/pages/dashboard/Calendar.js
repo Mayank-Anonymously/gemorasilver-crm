@@ -169,7 +169,7 @@ export default function Calendar() {
 	};
 
 	return (
-		<Page title='Calendar | Gemora Silver'>
+		<Page title='Calendar | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'xl'}>
 				<HeaderBreadcrumbs
 					heading='Calendar'

@@ -33,7 +33,7 @@ export default function Mail() {
 	}, [dispatch]);
 
 	return (
-		<Page title='Mail | Gemora Silver'>
+		<Page title='Mail | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'xl'}>
 				<HeaderBreadcrumbs
 					heading='Mail'

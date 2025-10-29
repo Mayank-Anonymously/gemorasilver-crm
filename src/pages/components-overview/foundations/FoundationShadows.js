@@ -72,7 +72,7 @@ export default function FoundationShadows() {
 	];
 
 	return (
-		<RootStyle title='Foundations: Shadows | Gemora Silver'>
+		<RootStyle title='Foundations: Shadows | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

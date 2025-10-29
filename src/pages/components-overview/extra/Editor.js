@@ -36,7 +36,7 @@ export default function Editor() {
 	const [draftSimple, setDraftSimple] = useState(EditorState.createEmpty());
 
 	return (
-		<RootStyle title='Components: Editor | Gemora Silver'>
+		<RootStyle title='Components: Editor | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

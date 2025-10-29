@@ -44,7 +44,7 @@ export default function MultiLanguage() {
 	};
 
 	return (
-		<RootStyle title='Components: Multi Language | Gemora Silver'>
+		<RootStyle title='Components: Multi Language | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

@@ -29,7 +29,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function LabelsComponent() {
 	return (
-		<RootStyle title='Components: Label | Gemora Silver'>
+		<RootStyle title='Components: Label | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

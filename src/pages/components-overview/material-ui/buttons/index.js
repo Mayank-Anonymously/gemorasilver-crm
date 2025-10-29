@@ -44,7 +44,7 @@ export default function ButtonsComponent() {
 	};
 
 	return (
-		<RootStyle title='Components: Buttons | Gemora Silver'>
+		<RootStyle title='Components: Buttons | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

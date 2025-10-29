@@ -115,7 +115,7 @@ const SkeletonLoad = (
 
 export default function Map() {
 	return (
-		<RootStyle title='Components: Map | Gemora Silver'>
+		<RootStyle title='Components: Map | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

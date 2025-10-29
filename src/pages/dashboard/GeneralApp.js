@@ -39,7 +39,7 @@ export default function GeneralApp() {
 	}, []);
 
 	return (
-		<Page title='Game Rooms | Gemora Silver'>
+		<Page title='Game Rooms | Luniva jewels'>
 			<Container maxWidth={themeStretch ? 'xxl' : 'xxl'}>
 				<Grid container spacing={1}>
 					<Grid item xs={12} md={12} lg={12}>

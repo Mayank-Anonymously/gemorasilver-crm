@@ -39,7 +39,7 @@ export default function UserCards() {
 	}, [dispatch]);
 
 	return (
-		<Page title='User: Cards | Gemora Silver'>
+		<Page title='User: Cards | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'lg'}>
 				<HeaderBreadcrumbs
 					heading='User Cards'

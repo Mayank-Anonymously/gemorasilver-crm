@@ -22,7 +22,7 @@ const ViewTimesheet = () => {
 	const { data } = location.state;
 
 	return (
-		<Page title='View Timesheet || Gemora Silver'>
+		<Page title='View Timesheet || Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'lg'}>
 				<HeaderBreadcrumbs
 					heading='Time sheet of emplyoee'

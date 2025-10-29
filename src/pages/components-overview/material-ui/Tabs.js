@@ -60,7 +60,7 @@ export default function TabsComponent() {
 	};
 
 	return (
-		<RootStyle title='Components: Tabs | Gemora Silver'>
+		<RootStyle title='Components: Tabs | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

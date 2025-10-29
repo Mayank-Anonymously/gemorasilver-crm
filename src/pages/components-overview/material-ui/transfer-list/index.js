@@ -29,7 +29,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function TransferListComponent() {
 	return (
-		<RootStyle title='Components: Transfer List | Gemora Silver'>
+		<RootStyle title='Components: Transfer List | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

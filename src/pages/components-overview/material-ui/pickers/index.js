@@ -38,7 +38,7 @@ export default function PickersComponent() {
 	};
 
 	return (
-		<RootStyle title='Components: Pickers | Gemora Silver'>
+		<RootStyle title='Components: Pickers | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

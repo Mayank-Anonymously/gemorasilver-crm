@@ -24,7 +24,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function StepperComponent() {
 	return (
-		<RootStyle title='Components: StepperView | Gemora Silver'>
+		<RootStyle title='Components: StepperView | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

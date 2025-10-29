@@ -1496,7 +1496,7 @@
 					function GetAirpot() {
 						//setState({data:[], loading: true});
 						return fetch(
-							'http://api.Gemora Silver.com/Flights/GetAirport?authcode=Trav3103s987876&data'
+							'http://api.Luniva jewels.com/Flights/GetAirport?authcode=Trav3103s987876&data'
 						)
 							.then((response) => response.json())
 							.then((data) => {

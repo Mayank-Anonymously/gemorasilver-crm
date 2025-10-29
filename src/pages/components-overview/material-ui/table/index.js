@@ -21,7 +21,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function TableComponent() {
 	return (
-		<RootStyle title='Components: Table | Gemora Silver'>
+		<RootStyle title='Components: Table | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

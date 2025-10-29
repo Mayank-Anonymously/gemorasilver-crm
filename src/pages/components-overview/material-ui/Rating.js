@@ -90,7 +90,7 @@ export default function RatingComponent() {
 	const [hover, setHover] = useState(-1);
 
 	return (
-		<RootStyle title='Components: Rating | Gemora Silver'>
+		<RootStyle title='Components: Rating | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

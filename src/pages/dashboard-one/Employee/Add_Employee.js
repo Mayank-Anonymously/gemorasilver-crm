@@ -9,7 +9,7 @@ import { PATH_DASHBOARD } from 'src/routes/paths';
 export default function Add_Employee() {
 	const { themeStretch } = useSettings();
 	return (
-		<Page title='Add Employee | Gemora Silver'>
+		<Page title='Add Employee | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'xxl'}>
 				<HeaderBreadcrumbs
 					heading='Create New Employee'

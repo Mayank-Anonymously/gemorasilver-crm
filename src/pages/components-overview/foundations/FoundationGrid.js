@@ -53,7 +53,7 @@ export default function FoundationGrid() {
 	};
 
 	return (
-		<RootStyle title='Foundations: Grid | Gemora Silver'>
+		<RootStyle title='Foundations: Grid | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

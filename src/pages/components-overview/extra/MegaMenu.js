@@ -34,7 +34,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function MegaMenu() {
 	return (
-		<RootStyle title='Mega Menu | Gemora Silver'>
+		<RootStyle title='Mega Menu | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

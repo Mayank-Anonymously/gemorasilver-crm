@@ -45,7 +45,7 @@ export default function AccordionComponent() {
 	};
 
 	return (
-		<RootStyle title='Components: Accordion | Gemora Silver'>
+		<RootStyle title='Components: Accordion | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

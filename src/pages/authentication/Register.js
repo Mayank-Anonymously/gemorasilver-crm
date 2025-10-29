@@ -55,7 +55,7 @@ export default function Register() {
 	const { method } = useAuth();
 
 	return (
-		<RootStyle title='Register | Gemora Silver'>
+		<RootStyle title='Register | Luniva jewels'>
 			<AuthLayout>
 				Already have an account? &nbsp;
 				<Link
@@ -109,7 +109,7 @@ export default function Register() {
 						align='center'
 						sx={{ color: 'text.secondary', mt: 3 }}
 					>
-						By registering, I agree to Gemora Silver&nbsp;
+						By registering, I agree to Luniva jewels&nbsp;
 						<Link underline='always' color='text.primary' href='#'>
 							Terms of Service
 						</Link>

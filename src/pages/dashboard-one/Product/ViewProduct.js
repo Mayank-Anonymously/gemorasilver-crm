@@ -187,7 +187,7 @@ export default function EcommerceProductList() {
 	};
 
 	return (
-		<Page title='Ecommerce: Product List | Gemora Silver'>
+		<Page title='Ecommerce: Product List | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'xxxl'}>
 				<HeaderBreadcrumbs
 					heading='Product List'

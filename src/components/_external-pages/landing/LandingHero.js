@@ -109,7 +109,7 @@ export default function LandingHero() {
 									variant='h1'
 									sx={{ color: 'primary.main' }}
 								>
-									&nbsp;Gemora Silver
+									&nbsp;Luniva jewels
 								</Typography>
 							</Typography>
 						</motion.div>

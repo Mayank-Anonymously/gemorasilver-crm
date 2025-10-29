@@ -119,7 +119,7 @@ export default function Kanban() {
 	};
 
 	return (
-		<Page title='Kanban | Gemora Silver' sx={{ height: '100%' }}>
+		<Page title='Kanban | Luniva jewels' sx={{ height: '100%' }}>
 			<Container maxWidth={false} sx={{ height: '100%' }}>
 				<HeaderBreadcrumbs
 					heading='Kanban'

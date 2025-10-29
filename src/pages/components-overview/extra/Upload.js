@@ -81,7 +81,7 @@ export default function Upload() {
 	};
 
 	return (
-		<RootStyle title='Components: Upload | Gemora Silver'>
+		<RootStyle title='Components: Upload | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

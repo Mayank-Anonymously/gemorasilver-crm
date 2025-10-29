@@ -4,7 +4,7 @@ import { sentenceCase } from 'change-case';
 import { useState, useEffect } from 'react';
 import plusFill from '@iconify/icons-eva/plus-fill';
 import editFill from '@iconify/icons-eva/edit-fill';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link, Link as RouterLink } from 'react-router-dom';
 // material
 import { useTheme } from '@material-ui/core/styles';
 import {
@@ -31,22 +31,27 @@ import { PATH_DASHBOARD } from 'src/routes/paths';
 import useSettings from 'src/hooks/useSettings';
 // components
 import Page from 'src/components/Page';
+import Label from 'src/components/Label';
 import Scrollbar from 'src/components/Scrollbar';
 import SearchNotFound from 'src/components/SearchNotFound';
+
 import {
 	UserListHead,
 	UserListToolbar,
+	UserMoreMenu,
 } from 'src/components/_dashboard/user/list';
 import HeaderBreadcrumbs from 'src/components/HeaderBreadcrumbs';
+import axios from 'axios';
+import { GetAllLoyalityUser } from 'src/components/_dashboardone/API/GetAllLoyaltyUser';
+
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-	{ id: 's.no', label: 'S.No', alignRight: false },
-	{ id: 'paymentType', label: 'Payment Type', alignRight: false },
-	{ id: 'added', label: 'Added', alignRight: false },
-	{ id: 'deducted', label: 'Deducted', alignRight: false },
-	{ id: 'date', label: 'Date', alignRight: false },
-	{ id: '' },
+	{ id: 'name', label: 'Name', alignRight: false },
+	{ id: 'email', label: 'email', alignRight: false },
+	{ id: 'rewardClaim', label: 'Reward Claimed', alignRight: false },
+	{ id: 'purchaseCount', label: 'Purchase Count', alignRight: false },
+	// { id: "" },
 ];
 
 // ----------------------------------------------------------------------
@@ -83,17 +88,22 @@ function applySortFilter(array, comparator, query) {
 	return stabilizedThis.map((el) => el[0]);
 }
 
-export default function View_Transaction() {
+export default function View_user() {
 	const { themeStretch } = useSettings();
 	const theme = useTheme();
 	const dispatch = useDispatch();
-	const [projectDetails, setProjectDetails] = useState([]);
+	const { userList } = useSelector((state) => state.user);
+	const [userData, setUserData] = useState([]);
 	const [page, setPage] = useState(0);
 	const [order, setOrder] = useState('asc');
 	const [selected, setSelected] = useState([]);
 	const [orderBy, setOrderBy] = useState('name');
 	const [filterName, setFilterName] = useState('');
 	const [rowsPerPage, setRowsPerPage] = useState(5);
+	const token = localStorage.getItem('jwttoken');
+	useEffect(() => {
+		GetAllLoyalityUser({ setUserData });
+	}, []);
 
 	const handleRequestSort = (event, property) => {
 		const isAsc = orderBy === property && order === 'asc';
@@ -103,7 +113,7 @@ export default function View_Transaction() {
 
 	const handleSelectAllClick = (event) => {
 		if (event.target.checked) {
-			const newSelecteds = projectDetails.map((n) => n.name);
+			const newSelecteds = userData.map((n) => n.name);
 			setSelected(newSelecteds);
 			return;
 		}
@@ -146,30 +156,29 @@ export default function View_Transaction() {
 	};
 
 	const emptyRows =
-		page > 0
-			? Math.max(0, (1 + page) * rowsPerPage - projectDetails.length)
-			: 0;
+		page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
 
 	const filteredUsers = applySortFilter(
-		projectDetails,
+		userData,
 		getComparator(order, orderBy),
 		filterName
 	);
-
+	console.log(filteredUsers);
 	const isUserNotFound = filteredUsers.length === 0;
 
 	return (
-		<Page title='Transaction List | Luniva jewels'>
-			<Container maxWidth={themeStretch ? 'xxl' : 'xxl'}>
+		<Page title='User: List | Luniva jewels'>
+			<Container maxWidth={themeStretch ? false : 'lg'}>
 				<HeaderBreadcrumbs
-					heading='Transaction List'
+					heading='User List'
 					links={[
 						{ name: 'Dashboard', href: PATH_DASHBOARD.root },
-						{ name: 'Your Transactions' },
+						{ name: 'User', href: PATH_DASHBOARD.user.root },
+						{ name: 'List' },
 					]}
 				/>
 
-				<Card>
+				<Card sx={{ minWidth: 800 }}>
 					<UserListToolbar
 						numSelected={selected.length}
 						filterName={filterName}
@@ -177,13 +186,13 @@ export default function View_Transaction() {
 					/>
 
 					<Scrollbar>
-						<TableContainer sx={{ minWidth: 800 }}>
+						<TableContainer sx={{ minWidth: 1000 }}>
 							<Table>
 								<UserListHead
 									order={order}
 									orderBy={orderBy}
 									headLabel={TABLE_HEAD}
-									rowCount={projectDetails.length}
+									rowCount={userData.length}
 									numSelected={selected.length}
 									onRequestSort={handleRequestSort}
 									onSelectAllClick={handleSelectAllClick}
@@ -194,16 +203,15 @@ export default function View_Transaction() {
 										.map((row) => {
 											const {
 												id,
-												facility,
-												organisation,
-												designation,
-												recruter,
-												employeDBId,
-												employeId,
-												projectId,
-												startDate,
+												name,
+												email,
+												rewardClaimed,
+												purchaseCount,
+												avatarUrl,
+												rollId,
+												type,
 											} = row;
-											const isItemSelected = selected.indexOf(facility) !== -1;
+											const isItemSelected = selected.indexOf(name) !== -1;
 											return (
 												<TableRow
 													hover
@@ -216,7 +224,7 @@ export default function View_Transaction() {
 													<TableCell padding='checkbox'>
 														<Checkbox
 															checked={isItemSelected}
-															onChange={(event) => handleClick(event, facility)}
+															onChange={(event) => handleClick(event, name)}
 														/>
 													</TableCell>
 													<TableCell component='th' scope='row' padding='none'>
@@ -226,40 +234,33 @@ export default function View_Transaction() {
 															spacing={2}
 														>
 															<Avatar
-																alt={facility}
+																alt={name}
 																src={'/static/mock-images/avatar_1.jpg'}
 															/>
 															<Typography variant='subtitle2' noWrap>
-																{facility}
+																{name}
 															</Typography>
 														</Stack>
 													</TableCell>
-													<TableCell align='left'>{organisation}</TableCell>
-													<TableCell align='left'>{designation}</TableCell>
-													<TableCell align='left'>{recruter}</TableCell>
-													<TableCell align='left'>{employeId}</TableCell>
-													<TableCell align='left'>{employeDBId}</TableCell>
-													<TableCell align='left'>{projectId}</TableCell>
-													<TableCell align='left'>{startDate}</TableCell>
-
-													<TableCell align='right'>
-														<Button
-															variant='contained'
-															component={RouterLink}
-															to={PATH_DASHBOARD.project.editProject}
-															startIcon={<Icon icon={editFill} />}
-															state={{ data: row }}
-															sx={{
-																'&:hover': {
-																	backgroundColor: '#007B55',
-																	color: '#fff',
-																},
-															}}
+													<TableCell align='center'>{email}</TableCell>
+													<TableCell align='center'>
+														<Label
+															variant={
+																theme.palette.mode === 'light'
+																	? 'ghost'
+																	: 'filled'
+															}
+															color={
+																rewardClaimed === false ? 'error' : 'success'
+															}
 														>
-															Edit
-														</Button>
+															{rewardClaimed === true
+																? 'Claimed'
+																: 'In Process'}
+														</Label>
+														{/* {rewardClaimed === false ? ""} */}
 													</TableCell>
-													<TableCell />
+													<TableCell align='center'>{purchaseCount}</TableCell>
 												</TableRow>
 											);
 										})}
@@ -285,11 +286,12 @@ export default function View_Transaction() {
 					<TablePagination
 						rowsPerPageOptions={[5, 10, 25]}
 						component='div'
-						count={projectDetails.length}
+						count={userData.length}
 						rowsPerPage={rowsPerPage}
 						page={page}
 						onPageChange={handleChangePage}
 						onRowsPerPageChange={handleChangeRowsPerPage}
+						sx={{ justifyContent: 'center', alignItems: 'center' }}
 					/>
 				</Card>
 			</Container>

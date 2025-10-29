@@ -36,7 +36,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function Switches() {
 	return (
-		<RootStyle title='Components: Switches | Gemora Silver'>
+		<RootStyle title='Components: Switches | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

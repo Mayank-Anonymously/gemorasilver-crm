@@ -23,7 +23,7 @@ export default function View_Games() {
 	const { time } = location.state;
 
 	return (
-		<Page title='View Games | Gemora Silver'>
+		<Page title='View Games | Luniva jewels'>
 			<Container maxWidth={themeStretch ? 'xxl' : 'xxl'}>
 				{time == 'open' ? (
 					<Grid container spacing={1}>

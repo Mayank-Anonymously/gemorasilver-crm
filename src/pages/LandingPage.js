@@ -30,7 +30,7 @@ const ContentStyle = styled('div')(({ theme }) => ({
 export default function LandingPage() {
 	return (
 		<RootStyle
-			title='The starting point for your next project | Gemora Silver'
+			title='The starting point for your next project | Luniva jewels'
 			id='move_top'
 		>
 			<LandingHero />

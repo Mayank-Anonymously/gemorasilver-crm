@@ -53,7 +53,7 @@ export default function RadioButtons() {
 	};
 
 	return (
-		<RootStyle title='Components: Checkboxes | Gemora Silver'>
+		<RootStyle title='Components: Checkboxes | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

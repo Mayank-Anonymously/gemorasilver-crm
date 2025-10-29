@@ -22,7 +22,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function Contact() {
 	return (
-		<RootStyle title='Contact us | Gemora Silver'>
+		<RootStyle title='Contact us | Luniva jewels'>
 			<ContactHero />
 
 			<Container sx={{ my: 10 }}>

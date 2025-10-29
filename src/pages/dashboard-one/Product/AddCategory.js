@@ -21,7 +21,7 @@ export default function CreateCategory() {
 	const { themeStretch } = useSettings();
 
 	return (
-		<Page title='Ecommerce: Create a new product | Gemora Silver'>
+		<Page title='Ecommerce: Create a new product | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'lg'}>
 				<HeaderBreadcrumbs
 					heading={'Create a new Category'}

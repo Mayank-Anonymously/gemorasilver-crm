@@ -113,7 +113,7 @@ export default function EcommerceCheckout() {
 	}, [dispatch, activeStep]);
 
 	return (
-		<Page title='Ecommerce: Checkout | Gemora Silver'>
+		<Page title='Ecommerce: Checkout | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'lg'}>
 				<HeaderBreadcrumbs
 					heading='Checkout'

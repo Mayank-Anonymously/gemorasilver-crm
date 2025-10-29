@@ -21,7 +21,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function DataGridComponent() {
 	return (
-		<RootStyle title='Components: DataGrid | Gemora Silver'>
+		<RootStyle title='Components: DataGrid | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

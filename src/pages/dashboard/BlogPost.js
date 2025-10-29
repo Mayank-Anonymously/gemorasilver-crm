@@ -63,7 +63,7 @@ export default function BlogPost() {
 	}, [dispatch, title]);
 
 	return (
-		<Page title='Blog: Post Details | Gemora Silver'>
+		<Page title='Blog: Post Details | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'lg'}>
 				<HeaderBreadcrumbs
 					heading='Post Details'

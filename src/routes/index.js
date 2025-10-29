@@ -93,6 +93,7 @@ export default function Router() {
 				{ path: 'view-product', element: <View_Product /> },
 				{ path: 'transaction', element: <View_Transaction /> },
 				{ path: 'view-orders', element: <View_Order /> },
+				{ path: 'view-loyal-user', element: <View_Loyal_User /> },
 
 				/* MAYANK */
 
@@ -350,6 +351,9 @@ const View_Transaction = Loadable(
 );
 const View_Order = Loadable(
 	lazy(() => import('../pages/dashboard-one/Orders/ViewAllOrders'))
+);
+const View_Loyal_User = Loadable(
+	lazy(() => import('../pages/dashboard-one/User/LoyaltyUser'))
 );
 // Components
 const ComponentsOverview = Loadable(

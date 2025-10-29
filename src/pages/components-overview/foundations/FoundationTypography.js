@@ -100,7 +100,7 @@ function GetFontInfo({ name }) {
 
 export default function FoundationTypography() {
 	return (
-		<RootStyle title='Foundations: Typography | Gemora Silver'>
+		<RootStyle title='Foundations: Typography | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

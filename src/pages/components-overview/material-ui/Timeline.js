@@ -95,7 +95,7 @@ export default function TimelineComponent() {
 	const reduceTimeLine = slice(TIMELINES, TIMELINES.length - 3);
 
 	return (
-		<RootStyle title='Components: Timeline | Gemora Silver'>
+		<RootStyle title='Components: Timeline | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

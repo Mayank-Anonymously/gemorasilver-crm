@@ -21,7 +21,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function BadgeComponent() {
 	return (
-		<RootStyle title='Components: Badge | Gemora Silver'>
+		<RootStyle title='Components: Badge | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

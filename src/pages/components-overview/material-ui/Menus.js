@@ -93,7 +93,7 @@ export default function MenusComponent() {
 	};
 
 	return (
-		<RootStyle title='Components: Menus | Gemora Silver'>
+		<RootStyle title='Components: Menus | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

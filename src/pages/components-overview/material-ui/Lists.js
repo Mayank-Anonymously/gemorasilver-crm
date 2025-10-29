@@ -98,7 +98,7 @@ export default function ListsComponent() {
 	};
 
 	return (
-		<RootStyle title='Components: Lists | Gemora Silver'>
+		<RootStyle title='Components: Lists | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

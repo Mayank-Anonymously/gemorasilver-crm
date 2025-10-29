@@ -9,7 +9,7 @@ import { PATH_DASHBOARD } from 'src/routes/paths';
 export default function Add_user() {
 	const { themeStretch } = useSettings();
 	return (
-		<Page title='Add User | Gemora Silver'>
+		<Page title='Add User | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'xxl'}>
 				<HeaderBreadcrumbs
 					heading='Create New User'

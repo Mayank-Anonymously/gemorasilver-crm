@@ -68,7 +68,7 @@ export default function ProgressComponent() {
 	}, []);
 
 	return (
-		<RootStyle title='Components: Progress | Gemora Silver'>
+		<RootStyle title='Components: Progress | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

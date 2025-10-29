@@ -26,7 +26,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function ChipsComponent() {
 	return (
-		<RootStyle title='Components: Chip | Gemora Silver'>
+		<RootStyle title='Components: Chip | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

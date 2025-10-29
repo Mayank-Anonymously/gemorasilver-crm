@@ -38,7 +38,7 @@ export default function TextFieldComponent() {
 	// ----------------------------------------------------------------------
 
 	return (
-		<RootStyle title='Components: TextField | Gemora Silver'>
+		<RootStyle title='Components: TextField | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

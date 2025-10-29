@@ -176,7 +176,7 @@ export default function View_employee() {
 	const isUserNotFound = filteredUsers.length === 0;
 
 	return (
-		<Page title='Employee List | Gemora Silver'>
+		<Page title='Employee List | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'lg'}>
 				<HeaderBreadcrumbs
 					heading='Employee List'

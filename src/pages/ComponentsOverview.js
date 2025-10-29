@@ -24,7 +24,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function ComponentsOverview() {
 	return (
-		<RootStyle title='Components Overview | Gemora Silver'>
+		<RootStyle title='Components Overview | Luniva jewels'>
 			<ComponentHero />
 			<Container maxWidth='lg'>
 				<ComponentFoundation />

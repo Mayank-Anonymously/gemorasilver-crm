@@ -37,7 +37,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function Charts() {
 	return (
-		<RootStyle title='Components: Charts | Gemora Silver'>
+		<RootStyle title='Components: Charts | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

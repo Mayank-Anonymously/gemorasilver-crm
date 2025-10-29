@@ -73,7 +73,7 @@ export default function SliderComponent() {
 	};
 
 	return (
-		<RootStyle title='Components: Slider | Gemora Silver'>
+		<RootStyle title='Components: Slider | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

@@ -76,7 +76,7 @@ export default function EcommerceInvoice() {
 	const total = subTotal - INVOICE.discount + INVOICE.taxes;
 
 	return (
-		<Page title='Ecommerce: Invoice | Gemora Silver'>
+		<Page title='Ecommerce: Invoice | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'lg'}>
 				<HeaderBreadcrumbs
 					heading='Invoice Details'

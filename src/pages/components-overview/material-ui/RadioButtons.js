@@ -43,7 +43,7 @@ export default function RadioButtons() {
 	};
 
 	return (
-		<RootStyle title='Components: Radio Buttons | Gemora Silver'>
+		<RootStyle title='Components: Radio Buttons | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

@@ -104,7 +104,7 @@ export default function FormValidation() {
 	};
 
 	return (
-		<RootStyle title='Form Validation | Gemora Silver'>
+		<RootStyle title='Form Validation | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

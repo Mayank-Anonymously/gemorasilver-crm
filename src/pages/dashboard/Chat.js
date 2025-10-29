@@ -25,7 +25,7 @@ export default function Chat() {
 	}, [dispatch]);
 
 	return (
-		<Page title='Chat | Gemora Silver'>
+		<Page title='Chat | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'xl'}>
 				<HeaderBreadcrumbs
 					heading='Chat'

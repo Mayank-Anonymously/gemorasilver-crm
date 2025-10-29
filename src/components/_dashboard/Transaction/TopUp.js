@@ -160,7 +160,7 @@ export default function Payment() {
 	};
 	// console.log("userId:::", userId);
 	return (
-		<RootStyle title='Wallet Topup | Gemora Silver'>
+		<RootStyle title='Wallet Topup | Luniva jewels'>
 			<Container maxWidth='lg'>
 				<Box sx={{ mb: 5 }}>
 					<Typography variant='h3' align='center' paragraph>

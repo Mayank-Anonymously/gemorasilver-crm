@@ -27,7 +27,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function AlertsComponent() {
 	return (
-		<RootStyle title='Components: Alert | Gemora Silver'>
+		<RootStyle title='Components: Alert | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

@@ -20,7 +20,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function Page500() {
 	return (
-		<RootStyle title='500 Internal Server Error | Gemora Silver'>
+		<RootStyle title='500 Internal Server Error | Luniva jewels'>
 			<Container>
 				<Box sx={{ maxWidth: 480, margin: 'auto', textAlign: 'center' }}>
 					<Typography variant='h3' paragraph>

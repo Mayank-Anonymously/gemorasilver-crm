@@ -70,7 +70,7 @@ export default function ComingSoon() {
 	const countdown = useCountdown(new Date('07/07/2022 21:30'));
 
 	return (
-		<RootStyle title='Coming Soon | Gemora Silver'>
+		<RootStyle title='Coming Soon | Luniva jewels'>
 			<Container>
 				<Box sx={{ maxWidth: 480, margin: 'auto', textAlign: 'center' }}>
 					<Typography variant='h3' paragraph>

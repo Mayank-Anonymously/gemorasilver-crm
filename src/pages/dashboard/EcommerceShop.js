@@ -145,7 +145,7 @@ export default function EcommerceShop() {
 	};
 
 	return (
-		<Page title='Ecommerce: Shop | Gemora Silver'>
+		<Page title='Ecommerce: Shop | Luniva jewels'>
 			{values && (
 				<Backdrop open={isSubmitting} sx={{ zIndex: 9999 }}>
 					<CircularProgress />

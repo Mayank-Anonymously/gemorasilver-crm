@@ -13,7 +13,7 @@ export default function Edit_user() {
 	const { data } = location.state;
 
 	return (
-		<Page title='Edit User | Gemora Silver'>
+		<Page title='Edit User | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'xxl'}>
 				<HeaderBreadcrumbs
 					heading={`Edit ${data.name} details`}

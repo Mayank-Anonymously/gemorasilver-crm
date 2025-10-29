@@ -47,7 +47,7 @@ export default function PaginationComponent() {
 	};
 
 	return (
-		<RootStyle title='Components: Pagination | Gemora Silver'>
+		<RootStyle title='Components: Pagination | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

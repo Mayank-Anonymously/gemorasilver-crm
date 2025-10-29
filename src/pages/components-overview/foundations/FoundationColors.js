@@ -130,7 +130,7 @@ export default function FoundationColors() {
 	};
 
 	return (
-		<RootStyle title='Foundations: Color | Gemora Silver'>
+		<RootStyle title='Foundations: Color | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

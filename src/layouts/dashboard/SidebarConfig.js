@@ -52,6 +52,28 @@ const sidebarConfig = [
 	// MANAGEMENT
 	// ----------------------------------------------------------------------
 	{
+		subheader: 'User-Management',
+		items: [
+			// MANAGEMENT : USER
+
+			// MANAGEMENT : E-COMMERCE
+			{
+				title: 'Loyal User',
+				path: '#',
+				icon: ICONS.user,
+				children: [
+					{
+						title: 'view-product',
+						path: PATH_DASHBOARD.general.viewLoyaltyUser,
+					},
+
+					// { title: "checkout", path: PATH_DASHBOARD.eCommerce.checkout },
+					// { title: "invoice", path: PATH_DASHBOARD.eCommerce.invoice },
+				],
+			},
+		],
+	},
+	{
 		subheader: 'Product-Management',
 		items: [
 			// MANAGEMENT : USER

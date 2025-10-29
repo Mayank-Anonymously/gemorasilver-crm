@@ -32,7 +32,7 @@ export default function EcommerceProductCreate() {
 	}, [dispatch]);
 
 	return (
-		<Page title='Ecommerce: Create a new product | Gemora Silver'>
+		<Page title='Ecommerce: Create a new product | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'lg'}>
 				<HeaderBreadcrumbs
 					heading={!isEdit ? 'Create a new product' : 'Edit product'}

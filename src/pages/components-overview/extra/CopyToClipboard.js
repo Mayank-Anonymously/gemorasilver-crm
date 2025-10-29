@@ -17,7 +17,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function CopyToClipboard() {
 	return (
-		<RootStyle title='Components: Copy To Clipboard | Gemora Silver'>
+		<RootStyle title='Components: Copy To Clipboard | Luniva jewels'>
 			<Box
 				sx={{
 					pt: 6,

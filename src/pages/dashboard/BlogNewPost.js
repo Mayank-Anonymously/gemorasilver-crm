@@ -15,7 +15,7 @@ export default function BlogNewPost() {
 	const { themeStretch } = useSettings();
 
 	return (
-		<Page title='Blog: New Post | Gemora Silver'>
+		<Page title='Blog: New Post | Luniva jewels'>
 			<Container maxWidth={themeStretch ? false : 'lg'}>
 				<HeaderBreadcrumbs
 					heading='Create a new post'

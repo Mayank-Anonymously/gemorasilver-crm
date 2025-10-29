@@ -43,6 +43,7 @@ export const PATH_DASHBOARD = {
 		viewProduct: path(ROOTS_DASHBOARD, '/view-product'),
 		viewCategory: path(ROOTS_DASHBOARD, '/view-category'),
 		addSubCategory: path(ROOTS_DASHBOARD, '/add-sub-category'),
+		viewLoyaltyUser: path(ROOTS_DASHBOARD, '/view-loyal-user'),
 
 		viewOrders: path(ROOTS_DASHBOARD, '/view-orders'),
 	},
