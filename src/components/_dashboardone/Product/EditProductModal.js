@@ -37,7 +37,7 @@ export default function EditProductModal({
 	const NewProductSchema = Yup.object().shape({
 		productName: Yup.string().required('Product name is required'),
 		description: Yup.string().required('Description is required'),
-		price: Yup.number()
+		priceSale: Yup.number()
 			.required('Price is required')
 			.positive('Price must be positive'),
 	});
@@ -48,7 +48,7 @@ export default function EditProductModal({
 			_id: product?._id || '',
 			productName: product?.title || '',
 			description: product?.description || '',
-			price: product?.price || 0,
+			priceSale: product?.priceSale || 0,
 			images: product?.images || [],
 			categoryId: '',
 			subCategoryId: '',
@@ -92,6 +92,7 @@ export default function EditProductModal({
 			values.images.filter((_file) => _file !== file)
 		);
 
+	console.log(values);
 	return (
 		<Modal show={show} onHide={handleClose} size='lg'>
 			<Modal.Header closeButton>
@@ -134,9 +135,9 @@ export default function EditProductModal({
 											fullWidth
 											type='number'
 											label='Price'
-											{...getFieldProps('price')}
-											error={Boolean(touched.price && errors.price)}
-											helperText={touched.price && errors.price}
+											{...getFieldProps('priceSale')}
+											error={Boolean(touched.priceSale && errors.priceSale)}
+											helperText={touched.priceSale && errors.priceSale}
 										/>
 
 										<div>

@@ -45,11 +45,10 @@ import OrderDetailsModal from './ViewOrderDetails';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-	{ id: 'orderId', label: 'Order ID', alignRight: false },
 	{ id: 'title', label: 'Product', alignRight: false },
 	{ id: 'priceSale', label: 'Price', alignRight: true },
 	{ id: 'paymentMethod', label: 'Payment Method', alignRight: false },
-	{ id: 'status', label: 'Status', alignRight: false },
+	{ id: 'status', label: 'Payment Status', alignRight: false },
 	{ id: 'createdAt', label: 'Order Date', alignRight: false },
 	{ id: '' }, // for action buttons (View / Edit / Delete)
 ];
@@ -177,6 +176,7 @@ export default function ViewAllOrders() {
 		setSelectedOrder(order);
 		setShowOrderModal(true);
 	};
+	console.log(orders);
 	return (
 		<Page title='Ecommerce: Orders List | Animatrix Store'>
 			<Container maxWidth={themeStretch ? false : 'xxxl'}>
@@ -200,7 +200,6 @@ export default function ViewAllOrders() {
 						</Button>
 					}
 				/>
-				{console.log(filteredproduct)}
 				<Card>
 					<ProductListToolbar
 						numSelected={selected.length}
@@ -242,7 +241,7 @@ export default function ViewAllOrders() {
 													<TableCell>
 														<Box sx={{ display: 'flex', alignItems: 'center' }}>
 															<img
-																src={`${host}resources/${image}`}
+																src={`${host}resources/${image[0]}`}
 																alt={title}
 																style={{
 																	width: 60,

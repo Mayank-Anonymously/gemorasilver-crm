@@ -8,7 +8,7 @@ const EditProductCategoryAPI = async (values) => {
 
 		form.append('productName', values.productName);
 		form.append('description', values.description);
-		form.append('price', values.price);
+		form.append('priceSale', values.priceSale);
 		form.append('categoryId', values.subCategoryId);
 
 		// Append images (supporting both old and new)

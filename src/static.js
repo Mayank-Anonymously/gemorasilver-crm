@@ -1,2 +1,2 @@
 export const host = 'https://api.lunivajewels.com/';
-// export const host = 'http://192.168.1.2:9000/';
+// export const host = 'http://172.20.10.4:9000/';
